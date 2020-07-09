@@ -1,0 +1,39 @@
+.who {
+    background: url('./../images/bg_image_grey.png');
+    h2 {
+        margin-bottom: 80px;
+    }
+    &-img {
+        overflow: hidden;
+        & > div {
+            overflow: hidden;
+        }
+    }
+    &-text {
+        margin-bottom: 90px;
+    }
+    &-block {
+        margin-bottom: 20px;
+        &-big {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        &-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: linear-gradient(139.73deg, #243676 -17.15%, #E64555 110.66%);
+        }
+    }
+    &-bottom {
+        font-family: 'Quentin';
+        font-style: normal;
+        font-weight: normal;
+        font-size: 40px;
+        line-height: 130%;
+        text-align: center;
+        color: rgba(40, 40, 40, 0.8);
+    }
+
+}

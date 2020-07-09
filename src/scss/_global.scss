@@ -1,0 +1,115 @@
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Roboto', Arial, Helvetica, sans-serif;
+    font-style: normal;
+    font-weight: 300;
+    font-size: 16px;
+    line-height: 21px;
+    color: $textBlack;
+    background-image: url('./../images/bg_image.png');
+    min-height: 2000px;
+}
+
+section {
+    padding-bottom: 150px;
+    padding-top: 150px;
+}
+
+a {
+    font-family: 'RedHatDisplay';
+    font-style: normal;
+    font-weight: bold;
+    font-size: 24px;
+    line-height: 32px;
+    text-transform: uppercase;
+    color: $titleBlack;
+    background: $titleBlack;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    &:hover {
+        text-decoration: none;
+        color: $gradientColor;
+        background: $gradient;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+}
+
+h1 {
+    font-family: 'RedHatDisplay', Arial, Helvetica, sans-serif;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 89px;
+    line-height: 130%;
+    text-transform: uppercase;
+    color: $titleBlack;
+}
+
+h2 {
+    font-family: 'RedHatDisplay', Arial, Helvetica, sans-serif;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 48px;
+    line-height: 64px;
+    text-transform: uppercase;
+    color: $titleBlack;
+}
+
+h3 {
+    font-family: 'RedHatDisplay', Arial, Helvetica, sans-serif;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 24px;
+    line-height: 32px;
+    text-transform: uppercase;
+    color: $titleBlack;
+}
+
+button {
+    font-family: 'RedHatDisplay', Arial, Helvetica, sans-serif;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 24px;
+    line-height: 32px;
+    text-transform: uppercase;
+    color: $titleBlack;
+}
+
+p {
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 300;
+    font-size: 16px;
+    line-height: 130%;
+    color: $textBlack;
+}
+
+.pl-110 {
+    padding-left: 110px;
+}
+
+.mtb-60 {
+    margin-top: 60px;
+    margin-bottom: 60px;
+}
+
+.flex-end {
+    justify-content: flex-end;
+}
+
+
+@media(max-width: 991px) {
+    body {
+
+    }
+    h1 {
+
+    }
+    h3 {
+
+    }
+    
+}

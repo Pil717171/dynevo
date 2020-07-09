@@ -1,0 +1,127 @@
+//header animations
+.header {
+    &-hidden {
+        transform: translateY(-100%);
+    }
+    &-bg {
+
+    }
+}
+
+//gradient symbols 
+.gradient-text {
+    color: $gradientColor;
+    background: $gradient;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+//underline word
+.underline {
+    &::after {
+        content: '';
+        display: block;
+        transition: 0.4s ease-in-out;
+        width: 0%;
+        height: 10px;
+        background: url('./../images/line.png');
+        background-size: 100% 7px;
+        background-repeat: no-repeat;
+    }
+    &.visible {
+        &::after {
+            transition-delay: 1s;
+            width: 100%;
+        }
+    }
+}
+
+//show texts elements
+.text {
+    opacity: 0;
+    overflow: hidden;
+    transition: 0.3s ease-in-out;
+    transform: translateY(25px);
+    &.visible {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+//show images
+.image {
+    opacity: 0;
+    transform: translateX(20%) scale(1.2);
+    transition: opacity 0.2s ease-in-out;
+    transition: transform 1s ease-in-out;
+    &-visible {
+        opacity: 1;
+        transform: translateX(0) scale(1.3);
+        &:hover {
+            transform: translateX(0) scale(1.2);
+        }
+    }
+}
+
+//round links
+.round {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    cursor: pointer;
+    &-block {
+        width: 23px;
+        height: 23px;
+        border-radius: 50%;
+        background: $gradientRound;
+        overflow: hidden;
+        position: relative;
+        transition: 0.3s;
+        margin-right: 8px;
+        &::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: $titleBlack;
+            opacity: 1;
+            transition: 0.3s;
+        }
+        &::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('./../images/line.svg');
+            background-position: center;
+            background-repeat: no-repeat;
+            transition: 0.3s ease-in-out;
+        }
+    }
+    &-text {
+        font-size: 16px;
+        line-height: 21px;
+        color: $titleBlack;
+        background: $titleBlack;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent; 
+    }
+    &:hover {
+        .round-block::before {
+            opacity: 0;
+        }
+        .round-block::after {
+            // background-position: 60% 50%;
+        }
+        .round-text {
+            color: $gradientColor;
+            background: $gradient;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+    }
+}

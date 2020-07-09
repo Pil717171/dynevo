@@ -1,0 +1,26 @@
+.hero {
+    padding-top: 208px;
+    padding-bottom: 280px;
+    h1 {
+        display: inline-block;
+    }
+    &-img {
+        position: absolute;
+        z-index: 0;
+        right: 0;
+        top: 400px;
+        max-width: 800px;
+        max-height: 635px;
+        overflow: hidden;
+        img {
+            width: 100%;
+            height: auto;
+        }
+    }
+    &-nav {
+        margin-top: 150px;
+        &-item {
+            
+        }
+    }
+}
