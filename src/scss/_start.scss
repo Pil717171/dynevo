@@ -1,0 +1,71 @@
+.start {
+    h2 {
+        margin-bottom: 85px;
+    }
+    &-left {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+    &-text {
+        margin-bottom: 40px;
+    }
+    &-button {
+        & button {
+            width: 182px;
+            height: 48px;
+            background: $titleBlack;
+            border: none;
+            outline: none;
+            position: relative;
+            & span {
+                font-family: 'RedHatDisplay';
+                font-style: normal;
+                font-weight: bold;
+                font-size: 16px;
+                line-height: 130%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                text-transform: uppercase;
+                color: $whiteText;
+                position: relative;
+                z-index: 1;
+            }
+            &::after {
+                content: '';
+                display: block;
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                background: $gradient;
+                height: 0%;
+                width: 100%;
+                transition: all 0.3s ease-out;
+            }
+            &:hover {
+                &::after {
+                    height: 100%;
+                }
+            }
+        }
+
+    }
+    &-image {
+        overflow: hidden;
+        & img {
+            object-fit: cover;
+        }
+    }
+    &-bottom {
+        text-align: center;
+        font-family: 'Quentin';
+        font-style: normal;
+        font-weight: normal;
+        font-size: 40px;
+        line-height: 130%;
+        text-align: center;
+        color: $gray;
+        margin-top: 60px;
+    }
+}

@@ -5,16 +5,31 @@
         margin-bottom: 90px;
     }
     &-item {
+        margin-bottom: 70px;
         &-block {
             display: flex;
             flex-direction: row;
             align-items: center;
         }
         &-title {
-
+            line-height: 21px;
         }
         &-text {
-
+            margin-bottom: 10px;
         }
+    }
+    &-link {
+        display: flex;
+        justify-content: flex-end;
+        width: 100%;
+        margin-right: 15px;
+    }
+    &-bottom {
+        font-family: Quentin;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 40px;
+        line-height: 130%;
+        color: $gray;
     }
 }

@@ -38,13 +38,17 @@
 
 //show texts elements
 .text {
-    opacity: 0;
     overflow: hidden;
-    transition: 0.3s ease-in-out;
-    transform: translateY(25px);
+    & > span {
+        transition-delay: 2s;
+        display: inline-block;
+        transition: 0.5s ease-in-out;
+        transform: translateY(110%);
+    }
     &.visible {
-        opacity: 1;
-        transform: translateY(0);
+        & > span {
+            transform: translateY(0);
+        }
     }
 }
 

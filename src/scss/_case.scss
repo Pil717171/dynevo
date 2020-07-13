@@ -1,0 +1,144 @@
+.case {
+    position: relative;
+    h2 {
+        margin-bottom: 70px;
+    }
+    &-left {
+        display: flex;
+        flex-direction: column;
+        height: 473px;
+        &-num {
+            font-family: 'RedHatDisplay';
+            color: #743D69;
+            font-size: 248px;
+            line-height: 218px;
+            font-weight: bold;
+            background: $gradient;
+            background-size: cover;
+            color: transparent;
+            -moz-background-clip: text;
+            -webkit-background-clip: text;
+            margin-bottom: 20px;
+        }
+        &-text {
+            font-family: 'Quentin';
+            font-style: normal;
+            font-weight: normal;
+            font-size: 40px;
+            line-height: 130%;
+        }
+    }
+    &-slider {
+        width: 800px;
+        height: 500px;
+        position: absolute;
+        right: 0;
+        top: 280px;
+        &-items {
+            display: flex;
+            flex-direction: row;
+        }
+        &-item {
+            width: 200px;
+            height: 375px;
+            background: #ffffff;
+            position: relative;
+            flex-shrink: 0;
+            margin-right: 24px;
+            box-shadow: 0px 0px 40px -26px #000000;
+            &-image {
+                height: 228px;
+                overflow: hidden;
+                & img {
+                    min-height: 100%;
+                    min-width: 100%;
+                    object-fit: cover;
+
+                }
+            }
+            &-bottom {
+                padding: 20px;
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+                height: 147px;
+            }
+            &-text {
+                font-family: 'RedHatDisplay';
+                font-style: normal;
+                font-weight: 500;
+                font-size: 16px;
+                line-height: 21px;
+                color: $titleBlack;
+            }
+            &-button {
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                & a {
+                    font-family: 'RedHatDisplay';
+                    font-style: normal;
+                    font-weight: normal;
+                    font-size: 16px;
+                    line-height: 130%;
+                    color: $titleBlack;
+                    text-transform: capitalize;
+                    margin-right: 5px;
+                }
+            }
+        }
+        &-line {
+            width: 260px;
+            height: 1px;
+            background: rgba(21, 23, 31, 0.5);
+            margin-right: 20px;
+            position: relative;
+        }
+        &-loading {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: $gradient;
+            transition: 0.3s ease-in;
+        }
+        &-arrows {
+            display: flex;
+            flex-direction: row;
+            & img {
+                cursor: pointer;
+            }
+            &-prev {
+                transform: rotate(180deg);
+                margin-right: 15px;
+            }
+        }
+        &-control {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            margin-top: 60px;
+        }
+    }
+    .slick {
+        &-list {
+            overflow: hidden;
+            padding-top: 20px;
+            padding-bottom: 20px;
+        }
+        &-track {
+            display: flex;
+            height: 374px;
+        }
+        &-slide {
+            transition: 0.3s;
+            height: 324px;
+            overflow: hidden;
+        }
+        &-current {
+            height: 374px;
+        }
+    }
+}
+

@@ -48,7 +48,7 @@ function elementToVisible () {
     //tracking text elements
     function changeTextElements (scrollValue) {
         texts.forEach(text => {
-            (scrollValue + displayHeight - 200 > text.getBoundingClientRect().top + scrollValue
+            (scrollValue + displayHeight - 50 > text.getBoundingClientRect().top + scrollValue
             && !text.classList.contains('visible')) ? 
             text.classList.add('visible') : null;
         });
@@ -74,25 +74,47 @@ function elementToVisible () {
             et = coordinates.top + wt
             eh = image.offsetHeight
             let coeffcient = (coordinates.top + eh) / wh 
-            console.log(coeffcient)
-            console.log(et)
-            console.log(eh)
             if(wt + wh >= et && wt +wh - eh * 2 <= et + (wh -eh)) {
                 // image.style.transform = `scale(${oldScale * coeffcient - oldScale})`
             } else {
-                console.log(2)
+
             }
         }) 
-
-
-
-        console.log(wt + 'прокрутка окна')
-        console.log(wh + 'высота окна')
     }
 }
 
 
+// slider init home page
 
+$(document).ready(function(){
+    let mainSlider = $('.case-slider-items');
+    let initSlide = 1;
+
+    mainSlider.slick({
+        slidesToShow: 3,
+        draggable: true,
+        dots: false,
+        fade: false,
+        adaptiveHeight: false,
+        edgeFriction: 0.5,
+        prevArrow: $('.case-slider-arrows-prev'),
+        nextArrow: $('.case-slider-arrows-next'),
+    });
+
+    let totalSlides = mainSlider.slick("getSlick").slideCount
+
+    loadingLineFill(0)
+
+    mainSlider.on('afterChange', (e, slick, cur, next) => {
+        loadingLineFill(cur)
+    })
+
+    function loadingLineFill (current) {
+        let line = document.querySelector('.case-slider-loading')
+        let width = 100/totalSlides * (current + 1)
+        line.style.width = `${width}%`
+    }
+});
 
 
 
@@ -144,4 +166,4 @@ function asyncScroll() {
 
 
 headerBehavior()
-elementToVisible()
+setTimeout(elementToVisible, 1200)

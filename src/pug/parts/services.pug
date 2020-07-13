@@ -1,3 +1,5 @@
+include ./../mixins.pug
+
 section.services#services
     .container
         .row
@@ -7,7 +9,50 @@ section.services#services
                 .services-item.underline.text
                         .row
                             .col-12.col-lg-6
-                                h3.service-item-title Frontend development
+                                h3.services-item-title.text
+                                    span Frontend development
                             .col-12.offset-lg-1.col-lg-5
-                                p.service-item-text You’ve got designs – we’ve got talents. Using the latest frontend trends we’ll transform all your ideas into code and bring them to life.
-
+                                p.services-item-text.text
+                                    span You’ve got designs – we’ve got talents. Using the latest frontend trends we’ll transform all your ideas into code and bring them to life.
+                .services-item.underline.text
+                        .row
+                            .col-12.col-lg-6
+                                h3.services-item-title.text
+                                    span Back-end development
+                            .col-12.offset-lg-1.col-lg-5
+                                p.services-item-text.text
+                                    span We are interested in the successful launch of your project. With our backend solutions you will feel the power of your product’s functionality.
+                .services-item.underline.text
+                        .row
+                            .col-12.col-lg-6
+                                h3.services-item-title.text
+                                    span Custom software development
+                            .col-12.offset-lg-1.col-lg-5
+                                p.services-item-text.text
+                                    span We understand business needs of our clients and meet complex challenges with custom software development.
+                .services-item.underline.text
+                        .row
+                            .col-12.col-lg-6
+                                h3.services-item-title.text
+                                    span QA testing
+                            .col-12.offset-lg-1.col-lg-5
+                                p.services-item-text.text
+                                    span Our QA-testing team will test your software products and keep you informed about its status.
+                .services-item.underline.text
+                        .row
+                            .col-12.col-lg-6
+                                h3.services-item-title.text
+                                    span UX/UI design
+                            .col-12.offset-lg-1.col-lg-5
+                                p.services-item-text.text
+                                    span We help your business to stand out among the competitors transforming your business ideas into memorable applications and making visitor’s experience comfortab
+            .services-link
+                +roundLink('More', '#')
+            .col-12
+            .col-12
+                .services-bottom 
+                    | We meet complex challenges
+                    br 
+                    | with custom software 
+                    br 
+                    | development.

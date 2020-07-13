@@ -3,3 +3,20 @@ mixin roundLink (text, link)
         .round
             .round-block
             .round-text=text
+
+mixin commentBlock (url, name, job, comment)
+    .row.testimonials-block
+            .offset-1.col-11.offset-lg-2.col-lg-4
+                .testimonials-info
+                    .testimonials-info-avatar
+                        img(src=url, alt=name)
+                    .testimonials-info-text
+                        .testimonials-info-text-name.text   
+                            span=name
+                        .testimonials-info-text-job.text
+                            span=job
+            .col-12.col-lg-5 
+                .testimonials-text
+                    .testimonials-text-quot 
+                        img(src="./images/quote.svg", alt="quote")
+                    .testimonials-text-comment=comment
