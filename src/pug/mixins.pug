@@ -4,7 +4,7 @@ mixin roundLink (text, link)
             .round-block
             .round-text=text
 
-mixin commentBlock (url, name, job, comment)
+mixin commentBlock (url, name, job, comment, full)
     .row.testimonials-block
             .offset-1.col-11.offset-lg-2.col-lg-4
                 .testimonials-info
@@ -19,4 +19,7 @@ mixin commentBlock (url, name, job, comment)
                 .testimonials-text
                     .testimonials-text-quot 
                         img(src="./images/quote.svg", alt="quote")
-                    .testimonials-text-comment=comment
+                    .testimonials-text-big
+                        .testimonials-text-comment=comment
+                        .testimonials-text-full=full
+

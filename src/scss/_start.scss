@@ -48,6 +48,14 @@
                     height: 100%;
                 }
             }
+            &:disabled {
+                background: rgba(40, 40, 40, 0.3);
+                &:hover {
+                    &::after {
+                        height: 0;
+                    }
+                }
+            }
         }
 
     }
@@ -67,5 +75,26 @@
         text-align: center;
         color: $gray;
         margin-top: 60px;
+    }
+    @media(max-width: 991px) {
+        padding-top: 50px;
+        padding-bottom: 50px;
+        h2 {
+            margin-bottom: 40px;
+        }
+        &-text {
+            font-size: 14px;
+            line-height: 130%;
+            margin: 0;
+        }
+        &-button {
+            margin-top: 30px;
+            margin-bottom: 30px;
+        }
+        &-bottom {
+            margin-top: 30px;
+            font-size: 24px;
+            line-height: 100%;
+        }
     }
 }

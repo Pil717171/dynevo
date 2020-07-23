@@ -83,6 +83,134 @@ function elementToVisible () {
     }
 }
 
+function mobileMenuToggle () {
+    let header = document.querySelector('.header');
+    let menuButton = document.querySelector('.header-burger-wrapper');
+    let menuIcon = document.querySelector('.header-burger-menu');
+    let mobileMenu = document.querySelector('.header-burger-items');
+
+    menuButton.addEventListener('click', (e) => {
+        e.stopPropagation()
+        menuIcon.classList.toggle('open');
+        mobileMenu.classList.toggle('open');
+        header.classList.toggle('open');
+        if(document.querySelector('.header.open')) {
+            bodyScrollLock.disableBodyScroll()
+        } else {
+            bodyScrollLock.enableBodyScroll()
+        }
+    })
+}
+
+function fullCommentOpen () {
+    let testimonialsBlock = document.querySelector('.testimonials')
+    if(testimonialsBlock) {
+        let allCommentsPreviev = Array.prototype.slice.call(document.querySelectorAll('.testimonials-text-comment'));
+        allCommentsPreviev.forEach((comment) => {
+            comment.addEventListener('click', (e) => {
+                let fullComment = comment.nextElementSibling 
+                fullComment.classList.toggle('open')
+            })
+        })
+    } 
+}
+
+
+function formValidation () {
+    let contactForm = document.querySelector('.contact-form');
+    if(contactForm) {
+        let form = contactForm.querySelector('form')
+        
+        let nameInput = form.elements.name;
+        let regExpName = /^(?![\s.]+$)[a-zA-Z\s.]{1,50}$/;
+        let nameMessage = 'Enter your current name';
+
+
+        let emailInput = form.elements.email;
+        let regExpEmail = /^[-\w.]+@([A-z0-9][-A-z0-9]+\.)+[A-z]{2,4}$/;
+        let emailMessage = 'The email is wrong';
+
+        let phoneInput = form.elements.message;
+        let regExpPhone = /^[+]*[(]{0,1}[0-9]{1,4}[)]{0,1}[-\s\./0-9]*$/;
+        let phoneMessage = 'The phone is wrong';
+
+        let messageInput = form.elements.message;
+        let regExpMessage = /^\s*(?:\S\s*){5,10000}$/;
+        let messageMessage = 'The message is too short';
+
+        let submitButton = form.querySelector('button');
+        
+        let nameVal = false; 
+        let emailVal = false; 
+        let phoneVal = true; 
+        let messageVal = true;
+
+
+        function testFunction (inp, exp, message, validator) {
+            let parrentField = inp.closest('.contact-form-input');
+            let errorField = parrentField.querySelector('.error-field')
+            let labelField = parrentField.querySelector('.contact-form-input-label')
+
+            inp.addEventListener('input', (e) => {
+                let inputValue = inp.value;
+                let res = exp.test(inputValue)
+                if(!res && inputValue) {
+                    inp.classList.add('error-input')
+                    errorField.innerText = message;
+                    labelField.classList.remove('correct-field')
+                    validator = false;
+                    changeValidator(validator)
+                } else if (inputValue == '') {
+                    inp.classList.remove('error-input');
+                    errorField.innerText = '';
+                    labelField.classList.remove('correct-field')
+                    validator = false;
+                } else {
+                    inp.classList.remove('error-input')
+                    errorField.innerText = '';
+                    labelField.classList.add('correct-field')
+                    validator = true;
+                    changeValidator(validator)
+                }
+            })
+
+            function changeValidator(validator) {
+                switch(inp) {
+                    case nameInput: 
+                        nameVal = validator;
+                        break;
+                    case emailInput: 
+                        emailVal = validator;
+                        break;
+                    case messageInput: 
+                        messageVal = validator;
+                        break;
+                    case phoneInput: 
+                        phoneVal = validator;
+                        break;
+                }
+                isButtonDisabled()
+            }
+        }
+
+        testFunction(nameInput, regExpName, nameMessage, nameVal)
+        testFunction(emailInput, regExpEmail, emailMessage, emailVal)
+        testFunction(phoneInput, regExpPhone, phoneMessage, phoneVal)
+        testFunction(messageInput, regExpMessage, messageMessage, messageVal)
+
+        function isButtonDisabled(){
+            (nameVal && emailVal && messageVal && phoneVal) ? 
+            submitButton.removeAttribute('disabled') : 
+            submitButton.getAttribute('disabled')
+        }
+    }
+
+
+    
+    
+
+}
+
 
 // slider init home page
 
@@ -95,10 +223,34 @@ $(document).ready(function(){
         draggable: true,
         dots: false,
         fade: false,
-        adaptiveHeight: false,
+        arrows: true,
+        swipeToSlide: true,
         edgeFriction: 0.5,
         prevArrow: $('.case-slider-arrows-prev'),
         nextArrow: $('.case-slider-arrows-next'),
+        responsive: [
+            {
+                breakpoint: 1200,
+                settings: {
+                slidesToShow: 2
+              }
+            },
+            {
+                breakpoint: 991,
+                settings: {
+                    slidesToShow: 3
+                }
+            },
+            {
+                breakpoint: 768,
+                settings: {
+                    slidesToShow: 2,
+                    arrows: false,
+                    
+                }
+            },
+        ]
+        
     });
 
     let totalSlides = mainSlider.slick("getSlick").slideCount
@@ -166,4 +318,7 @@ function asyncScroll() {
 
 
 headerBehavior()
+mobileMenuToggle()
 setTimeout(elementToVisible, 1200)
+fullCommentOpen()
+formValidation()

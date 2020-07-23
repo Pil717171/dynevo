@@ -81,4 +81,52 @@
             margin-top: 8px;
         }
     }
+    @media(max-width: 991px) {
+        height: auto;
+        padding-bottom: 20px;
+        &-adress {
+
+            p {
+                margin-bottom: 10px;
+                font-size: 11px;
+                line-height: 25px;
+                margin-bottom: 0;
+            }
+        }
+        &-mail {
+            &-block {
+                font-size: 11px;
+                margin-bottom: 7px;
+            }
+            &-img {
+                margin-right: 10px;
+                img {
+                    height: 9px;
+                    
+                }
+            }
+        }
+        &-rewards {
+            margin-top: 20px;
+            margin-bottom: 30px;
+            bottom: auto;
+        }
+        &-follow {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            &-icons {
+                padding-right: 40px;
+                padding-left: 40px;
+            }
+            &-text {
+                font-size: 14px;
+                line-height: 130%
+            }
+            &-little {
+                font-size: 11px;
+                line-height: 13px;
+            }
+        }
+    }
 }

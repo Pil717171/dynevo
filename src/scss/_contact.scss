@@ -1,0 +1,34 @@
+.contact {
+    background: url('./../images/bg_image_grey.png');
+    padding-top: 212px;
+    padding-bottom: 200px;
+    h1 {
+        position: relative;
+        z-index: 1;
+        margin-bottom: 90px;
+    }
+    &-photo {
+        position: relative;
+        overflow: hidden;
+        z-index: 0;
+
+    }
+    @media(max-width: 991px) {
+        padding-top: 78px;
+        padding-bottom: 50px;
+        h1 {
+            margin-bottom: 0;
+        }
+        &-photo {
+            padding: 0;
+            img {
+                transform: scale(1);;
+            }
+        }
+    }
+    @media(max-width: 400px) {
+        &-photo {
+            bottom: 20px;
+        }
+    }
+}

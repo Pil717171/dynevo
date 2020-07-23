@@ -6,7 +6,7 @@
     &-block {
         margin-bottom: 70px;
         flex-direction: row;
-        align-items: center;
+        align-items: flex-start;
     }
     &-info {
         display: flex;
@@ -63,12 +63,65 @@
             background: $titleBlack;
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
+            margin-bottom: 30px;
             &:hover {
                 color: $gradientColor;
                 background: $gradient;
                 -webkit-background-clip: text;
                 -webkit-text-fill-color: transparent;
             }
+        }
+        &-full {
+            max-height: 0;
+            // height: 0;
+            transition: 0.5s ease-in-out;
+            overflow: hidden;
+            &.open {
+                max-height: 250px;
+                height: auto;
+            }
+        }
+    }
+    @media(max-width: 991px) {
+        padding-top: 50px;
+        padding-bottom: 20px;
+        h2 {
+            margin-bottom: 40px;
+        }
+        &-info {
+            margin-bottom: 13px;
+            &-avatar {
+                width: 51px;
+                height: 51px;
+            }
+            &-text {
+                &-name {
+                    font-size: 14px;
+                    line-height: 19px
+                }
+                &-job {
+                    font-size: 14px;
+                    line-height: 130%
+                }
+            }
+        }
+        &-text {
+            &-quot {
+                min-width: 15px;
+                width: 15px;
+            }
+            &-comment {
+                font-size: 14px;
+                line-height: 19px;
+                margin-bottom: 10px;
+            }
+            &-full {
+                font-size: 14px;
+                line-height: 130%;
+            }
+        }
+        &-block {
+            margin-bottom: 30px;
         }
     }
 }

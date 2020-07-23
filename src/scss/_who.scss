@@ -11,6 +11,7 @@
     }
     &-text {
         margin-bottom: 90px;
+        &-top {}
     }
     &-block {
         margin-bottom: 20px;
@@ -34,6 +35,30 @@
         line-height: 130%;
         text-align: center;
         color: rgba(40, 40, 40, 0.8);
+    }
+    @media(max-width: 991px) {
+        padding-top: 50px;
+        padding-bottom: 50px;
+        h2 {
+            margin-bottom: 40px;
+        }
+        &-img {
+            padding: 0;
+            margin-top: 30px;
+        }
+        &-block {
+            &-text {
+                font-size: 14px;
+                line-height: 130%;
+            }
+        }
+        &-text {
+            margin-bottom: 20px;
+        }
+        &-bottom {
+            font-size: 24px;
+            line-height: 100%;
+        }
     }
 
 }

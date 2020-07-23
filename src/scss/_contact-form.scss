@@ -1,0 +1,44 @@
+.contact-form {
+    padding-top: 135px;
+    padding-bottom: 135px;
+    background: url('./../images/bg_image.png');
+    h2 {
+        margin-bottom: 90px;
+    }
+    &-block {
+        display: flex;
+        flex-direction: column;
+        margin-top: 60px;
+    }
+    &-img {
+        overflow: hidden;
+    }
+
+    input, textarea {
+        width: 100%;
+        background: url('./../images/bg_image.png');
+    }
+
+    &-items {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        margin-top: 60px;
+        margin-bottom: 60px;
+        & > div {
+            width: 48%;
+        }
+    }
+    &-input {
+        &-label {
+            color: $titleBlack;
+            transition: 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+    }
+    & .start-button {
+        margin-top: 70px;
+    }
+}
