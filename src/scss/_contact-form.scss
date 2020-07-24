@@ -41,4 +41,28 @@
     & .start-button {
         margin-top: 70px;
     }
+    @media(max-width: 991px) {
+        padding-top: 50px;
+        padding-bottom: 50px;
+        h2 {
+            margin-bottom: 30px;
+        }
+        &-block {
+            margin-top: 30px;  
+        }
+        &-items {
+            margin: 0;
+            flex-direction: column;
+            & > div {
+                width: 100%;
+            }
+        }
+        &-input {
+            margin-bottom: 30px;
+        }
+        & .start-button {
+            margin-top: 0;
+            margin-bottom: 10px;
+        }
+    }
 }

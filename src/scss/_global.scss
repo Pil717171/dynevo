@@ -87,11 +87,14 @@ p {
 
 input, textarea {
     border: none;
-    border-bottom: 1px solid rgba(40, 40, 40, 0.8);
+    border-bottom: 1px solid rgba(40, 40, 40, 0.3);
     transition: 0.3s;
     outline: none;
     &.error-input {
         border-bottom: 1px solid rgba(230, 69, 85, 0.8);
+    }
+    &:focus {
+        border-bottom: 1px solid rgba(40, 40, 40, 0.8);
     }
 }
 
@@ -135,7 +138,8 @@ input, textarea {
 
 @media(max-width: 991px) {
     body {
-
+        font-size: 14px;
+        line-height: 130%;
     }
     h1 {
         font-size: 36px;

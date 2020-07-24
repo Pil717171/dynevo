@@ -138,6 +138,8 @@ function formValidation () {
         let regExpMessage = /^\s*(?:\S\s*){5,10000}$/;
         let messageMessage = 'The message is too short';
 
+        let requiredMessage = 'This field is required'
+
         let submitButton = form.querySelector('button');
         
         let nameVal = false; 
@@ -146,7 +148,7 @@ function formValidation () {
         let messageVal = true;
 
 
-        function testFunction (inp, exp, message, validator) {
+        function testFunction (inp, exp, message, validator, isRrequired = false) {
             let parrentField = inp.closest('.contact-form-input');
             let errorField = parrentField.querySelector('.error-field')
             let labelField = parrentField.querySelector('.contact-form-input-label')
@@ -161,10 +163,11 @@ function formValidation () {
                     validator = false;
                     changeValidator(validator)
                 } else if (inputValue == '') {
-                    inp.classList.remove('error-input');
-                    errorField.innerText = '';
+                    isRrequired ? inp.classList.add('error-input') : inp.classList.remove('error-input');
+                    errorField.innerText = isRrequired ? requiredMessage : '';
                     labelField.classList.remove('correct-field')
-                    validator = false;
+                    validator = isRrequired ? false : true;
+                    changeValidator(validator)
                 } else {
                     inp.classList.remove('error-input')
                     errorField.innerText = '';
@@ -193,24 +196,34 @@ function formValidation () {
             }
         }
 
-        testFunction(nameInput, regExpName, nameMessage, nameVal)
-        testFunction(emailInput, regExpEmail, emailMessage, emailVal)
+        testFunction(nameInput, regExpName, nameMessage, nameVal, true)
+        testFunction(emailInput, regExpEmail, emailMessage, emailVal, true)
         testFunction(phoneInput, regExpPhone, phoneMessage, phoneVal)
         testFunction(messageInput, regExpMessage, messageMessage, messageVal)
 
         function isButtonDisabled(){
             (nameVal && emailVal && messageVal && phoneVal) ? 
             submitButton.removeAttribute('disabled') : 
-            submitButton.getAttribute('disabled')
+            submitButton.setAttribute('disabled', true);
         }
     }
-
-
-    
-    
-
 }
 
+function technologiesShow () {
+    let expertiseBlock = document.querySelector('.expertise')
+    if(expertiseBlock) {
+        let openButtons = Array.prototype.slice.call(expertiseBlock.querySelectorAll('.expertise-plus'))
+        openButtons.forEach((button) => {
+            button.addEventListener('click', (e) => {
+                let parrentBlock = button.closest('.expertise-block');
+                let technologiesBlock = parrentBlock.querySelector('.expertise-items');
+                technologiesBlock.classList.toggle('open')
+                button.classList.toggle('open')
+            })
+        })
+        
+    }
+}
 
 // slider init home page
 
@@ -322,3 +335,4 @@ mobileMenuToggle()
 setTimeout(elementToVisible, 1200)
 fullCommentOpen()
 formValidation()
+technologiesShow()
