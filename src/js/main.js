@@ -226,60 +226,63 @@ function technologiesShow () {
 }
 
 // slider init home page
-
-$(document).ready(function(){
-    let mainSlider = $('.case-slider-items');
-    let initSlide = 1;
-
-    mainSlider.slick({
-        slidesToShow: 3,
-        draggable: true,
-        dots: false,
-        fade: false,
-        arrows: true,
-        swipeToSlide: true,
-        edgeFriction: 0.5,
-        prevArrow: $('.case-slider-arrows-prev'),
-        nextArrow: $('.case-slider-arrows-next'),
-        responsive: [
-            {
-                breakpoint: 1200,
-                settings: {
-                slidesToShow: 2
-              }
-            },
-            {
-                breakpoint: 991,
-                settings: {
-                    slidesToShow: 3
-                }
-            },
-            {
-                breakpoint: 768,
-                settings: {
-                    slidesToShow: 2,
-                    arrows: false,
-                    
-                }
-            },
-        ]
-        
+let slider = document.querySelector('.case-slider');
+if(slider) {
+    $(document).ready(function(){
+        let mainSlider = $('.case-slider-items');
+        let initSlide = 1;
+    
+        mainSlider.slick({
+            slidesToShow: 3,
+            draggable: true,
+            dots: false,
+            fade: false,
+            arrows: true,
+            swipeToSlide: true,
+            edgeFriction: 0.5,
+            prevArrow: $('.case-slider-arrows-prev'),
+            nextArrow: $('.case-slider-arrows-next'),
+            responsive: [
+                {
+                    breakpoint: 1200,
+                    settings: {
+                    slidesToShow: 2
+                  }
+                },
+                {
+                    breakpoint: 991,
+                    settings: {
+                        slidesToShow: 3
+                    }
+                },
+                {
+                    breakpoint: 768,
+                    settings: {
+                        slidesToShow: 2,
+                        arrows: false,
+                        
+                    }
+                },
+            ]
+            
+        });
+    
+        let totalSlides = mainSlider.slick("getSlick").slideCount
+    
+        loadingLineFill(0)
+    
+        mainSlider.on('afterChange', (e, slick, cur, next) => {
+            loadingLineFill(cur)
+        })
+    
+        function loadingLineFill (current) {
+            let line = document.querySelector('.case-slider-loading')
+            let width = 100/totalSlides * (current + 1)
+            line.style.width = `${width}%`
+        }
     });
+}
 
-    let totalSlides = mainSlider.slick("getSlick").slideCount
-
-    loadingLineFill(0)
-
-    mainSlider.on('afterChange', (e, slick, cur, next) => {
-        loadingLineFill(cur)
-    })
-
-    function loadingLineFill (current) {
-        let line = document.querySelector('.case-slider-loading')
-        let width = 100/totalSlides * (current + 1)
-        line.style.width = `${width}%`
-    }
-});
 
 
 
